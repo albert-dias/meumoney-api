@@ -4,9 +4,9 @@ import "reflect-metadata";
 import express from 'express';
 import cors from 'cors'
 import routes from './routes';
-import { AppDataSource } from './database';
+import { dataSource } from './database';
 
-AppDataSource.initialize().then(() => { console.log(`.: DATABASE ONLINE :.`) });
+dataSource.initialize().then(() => { console.log(`.: DATABASE ONLINE :.`) });
 
 const PORT = process.env.PORT || 3333;
 

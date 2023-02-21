@@ -4,15 +4,15 @@ import { DataSource } from "typeorm";
 export const dataSource = new DataSource({
   type: "postgres",
   host: "localhost",
-  port: 5432,
+  port: 35432,
   username: "postgres",
   password: "docker",
   database: "meumoneydb",
   entities: [
-    path.resolve(__dirname, '..', 'entities')
+    path.resolve(__dirname, '..', 'entities', "*.{ts,js}")
   ],
   subscribers: [],
   migrations: [
-    path.resolve(__dirname, 'migrations')
+    path.resolve(__dirname, 'migrations', "*.{ts,js}")
   ],
 })

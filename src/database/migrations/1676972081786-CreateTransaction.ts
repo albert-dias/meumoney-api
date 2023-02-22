@@ -25,6 +25,10 @@ export class CreateTransaction1676972081786 implements MigrationInterface {
                         type: "uuid"
                     },
                     {
+                        name: "value",
+                        type: "integer"
+                    },
+                    {
                         name: "type",
                         type: "varchar"
                     },

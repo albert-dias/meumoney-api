@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateService } from "../services/User/CreateService";
+import { UserCreateService } from "../services/UserCreateService";
 
 export class UsersController {
   async create(req: Request, res: Response): Promise<Response> {
@@ -11,7 +11,7 @@ export class UsersController {
         password
       } = req.body;
 
-      const userService = new CreateService();
+      const userService = new UserCreateService();
 
       const user = await userService.execute({
         email,

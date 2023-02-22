@@ -1,7 +1,7 @@
 import { hash } from "bcryptjs";
 import { Repository } from "typeorm";
-import { dataSource } from "../../database";
-import { User } from "../../entities/User";
+import { dataSource } from "../database";
+import { User } from "../entities/User";
 
 interface IRequest {
   email: string;
@@ -10,7 +10,7 @@ interface IRequest {
   password: string;
 }
 
-export class CreateService {
+export class UserCreateService {
   private usersRepository: Repository<User>
 
   constructor() {

@@ -16,7 +16,7 @@ export class Survive {
   user: User;
 
   @Column()
-  is_credit: boolean;
+  type: "credit" | "debit";
 
   @CreateDateColumn()
   created_at: Date;

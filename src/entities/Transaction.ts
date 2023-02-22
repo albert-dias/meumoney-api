@@ -25,6 +25,9 @@ export class Transaction {
   @Column()
   type: "credit" | "debit";
 
+  @Column()
+  value: number;
+
   @CreateDateColumn()
   created_at: Date;
 

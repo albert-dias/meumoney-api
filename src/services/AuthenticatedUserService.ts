@@ -2,7 +2,7 @@ import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { Repository } from "typeorm";
 import auth from "../config/auth";
-import { AppDataSource } from "../database";
+import { dataSource } from "../database";
 import { User } from "../entities/User";
 
 interface IRequest {
@@ -17,7 +17,7 @@ interface IResponse {
 export class AuthenticatedUserService {
   private usersRepository: Repository<User>;
   constructor() {
-    this.usersRepository = AppDataSource.getRepository(User);
+    this.usersRepository = dataSource.getRepository(User);
   }
 
   public async execute({ email, password }: IRequest): Promise<IResponse> {

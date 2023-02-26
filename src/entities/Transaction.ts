@@ -1,8 +1,9 @@
-import { Column, CreateDateColumn, JoinColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Category } from "./Category";
 import { User } from "./User";
 
+@Entity("transactions")
 export class Transaction {
   @PrimaryColumn()
   id: string;
@@ -13,7 +14,8 @@ export class Transaction {
   @Column()
   category_id: string;
 
-  @JoinColumn()
+  @JoinColumn({ name: "category_id" })
+  @OneToOne(() => Category, cat => cat.id)
   category: Category;
 
   @Column()

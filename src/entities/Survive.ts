@@ -1,7 +1,8 @@
-import { Column, CreateDateColumn, JoinColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
 
+@Entity("survives")
 export class Survive {
   @PrimaryColumn()
   id: string;

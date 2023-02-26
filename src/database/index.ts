@@ -15,4 +15,6 @@ export const dataSource = new DataSource({
   migrations: [
     path.resolve(__dirname, 'migrations', "*.{ts,js}")
   ],
-})
+});
+
+dataSource.initialize().then(() => { console.log(`.: DATABASE ONLINE :.`) });

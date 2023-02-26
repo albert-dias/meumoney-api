@@ -1,8 +1,9 @@
-import { Column, CreateDateColumn, JoinColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Financing } from "./Financing";
 import { User } from "./User";
 
+@Entity("portion_payments")
 export class PortionPayment {
   @PrimaryColumn()
   id: string;

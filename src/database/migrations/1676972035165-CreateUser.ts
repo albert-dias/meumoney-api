@@ -30,15 +30,17 @@ export class CreateUser1676972035165 implements MigrationInterface {
                     },
                     {
                         name: "phone",
-                        type: "varchar"
+                        type: "varchar",
+                        isNullable: true
                     },
                     {
                         name: "document",
-                        type: "varchar"
+                        type: "varchar",
+                        isNullable: true
                     },
                     {
                         name: "is_active",
-                        type: "integer"
+                        type: "integer",
                     },
                     {
                         name: "is_premium",

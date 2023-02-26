@@ -1,7 +1,8 @@
-import { Column, CreateDateColumn, JoinColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, PrimaryColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
 
+@Entity("financings")
 export class Financing {
   @PrimaryColumn()
   id: string;
@@ -10,13 +11,13 @@ export class Financing {
   description: string;
 
   @Column()
-  total_portions: string;
+  total_portions: number;
 
   @Column()
-  total_portions_payments: string;
+  total_portions_payments: number;
 
   @Column()
-  value_portion: string;
+  value_portion: number;
 
   @Column()
   maturity_day: number;

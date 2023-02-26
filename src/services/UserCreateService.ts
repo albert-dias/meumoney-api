@@ -24,13 +24,16 @@ export class UserCreateService {
     password
   }: IRequest): Promise<User> {
 
+
     if (!email || !name || !lastname || !password) {
       throw new Error("Dados incompletos, verifique o formulário")
     }
 
+    const emailTrat = email.toLowerCase().trim();
+
     const userExists = await this.usersRepository.findOne({
       where: {
-        email,
+        email: emailTrat,
       }
     })
 
@@ -46,8 +49,11 @@ export class UserCreateService {
       fullname: `${name} ${lastname}`,
       is_admin: 0,
       is_premium: 0,
+      is_active: 1,
       password: hashPass,
     })
+
+    delete user.password;
 
     await this.usersRepository.save(user);
 

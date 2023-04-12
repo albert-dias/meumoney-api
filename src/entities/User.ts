@@ -22,6 +22,9 @@ export class User {
   document: string;
 
   @Column()
+  avatar_url: string;
+
+  @Column()
   is_active: number;
 
   @Column()

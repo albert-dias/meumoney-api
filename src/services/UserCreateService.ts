@@ -7,7 +7,6 @@ interface IRequest {
   email: string;
   name: string;
   lastname: string;
-  password: string;
 }
 
 export class UserCreateService {
@@ -21,7 +20,6 @@ export class UserCreateService {
     email,
     name,
     lastname,
-    password
   }: IRequest): Promise<User> {
 
 
@@ -41,8 +39,6 @@ export class UserCreateService {
       throw new Error('E-mail ja cadastrado na nossa base de dados!')
     }
 
-    const hashPass = await hash(password, 8);
-
     const user = this.usersRepository.create({
       email,
       name,
@@ -50,10 +46,7 @@ export class UserCreateService {
       is_admin: 0,
       is_premium: 0,
       is_active: 1,
-      password: hashPass,
     })
-
-    delete user.password;
 
     await this.usersRepository.save(user);
 

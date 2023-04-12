@@ -34,11 +34,6 @@ export class AuthenticatedUserService {
 
     if (!user) throw new Error("Usuário não existe");
 
-
-    const passwordMatched = await compare(password, user.password);
-
-    if (!passwordMatched) throw new Error("Senha inválida");
-
     if (user.is_active == 0) throw new Error("Usuário não liberado!");
 
     const { secret, expiresIn } = auth.jwt;
@@ -51,8 +46,6 @@ export class AuthenticatedUserService {
         expiresIn,
       }
     );
-
-    delete user.password;
 
     return { user, token };
   }

@@ -13,7 +13,9 @@ export class CategoryListService {
 
     const category = await this.categorysRepository.find()
 
-    return category;
+    const catFilter = category.filter(c => c.name !== "FINANCIAMENTOS")
+
+    return catFilter;
 
   }
 }

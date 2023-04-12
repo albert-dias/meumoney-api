@@ -12,7 +12,7 @@ interface IRequest {
   type: "credit" | "debit";
 }
 
-export class CreateService {
+export class FinancingCreateService {
   private financingRepository: Repository<Financing>
 
   constructor() {

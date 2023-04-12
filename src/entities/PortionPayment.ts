@@ -9,7 +9,7 @@ export class PortionPayment {
   id: string;
 
   @Column()
-  portion_number: string;
+  portion_number: number;
 
   @Column()
   user_id: string;

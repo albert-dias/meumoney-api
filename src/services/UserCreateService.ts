@@ -7,6 +7,7 @@ interface IRequest {
   email: string;
   name: string;
   lastname: string;
+  avatar_url: string;
 }
 
 export class UserCreateService {
@@ -20,10 +21,11 @@ export class UserCreateService {
     email,
     name,
     lastname,
+    avatar_url
   }: IRequest): Promise<User> {
 
 
-    if (!email || !name || !lastname || !password) {
+    if (!email || !name || !lastname) {
       throw new Error("Dados incompletos, verifique o formulário")
     }
 
@@ -42,6 +44,7 @@ export class UserCreateService {
     const user = this.usersRepository.create({
       email,
       name,
+      avatar_url,
       fullname: `${name} ${lastname}`,
       is_admin: 0,
       is_premium: 0,

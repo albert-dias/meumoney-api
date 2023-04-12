@@ -7,7 +7,6 @@ import { User } from "../entities/User";
 
 interface IRequest {
   email: string;
-  password: string;
 }
 
 interface IResponse {
@@ -20,8 +19,8 @@ export class AuthenticatedUserService {
     this.usersRepository = dataSource.getRepository(User);
   }
 
-  public async execute({ email, password }: IRequest): Promise<IResponse> {
-    if (!email || !password) {
+  public async execute({ email }: IRequest): Promise<IResponse> {
+    if (!email) {
       throw new Error("Dados incompletos, verifique a requisição!");
     }
 

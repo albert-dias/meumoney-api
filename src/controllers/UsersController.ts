@@ -8,7 +8,7 @@ export class UsersController {
         email,
         name,
         lastname,
-        password
+        avatar_url
       } = req.body;
 
       const userService = new UserCreateService();
@@ -17,7 +17,7 @@ export class UsersController {
         email,
         name,
         lastname,
-        password
+        avatar_url
       });
 
       return res.status(201).json(user);

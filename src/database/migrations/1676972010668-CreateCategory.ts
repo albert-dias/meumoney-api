@@ -17,6 +17,10 @@ export class CreateCategory1676972010668 implements MigrationInterface {
                         type: "varchar",
                     },
                     {
+                        name: "icon",
+                        type: "varchar",
+                    },
+                    {
                         name: "color",
                         type: "varchar"
                     },

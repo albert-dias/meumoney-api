@@ -12,6 +12,8 @@ export class Category {
   @Column()
   color: string;
 
+  @Column()
+  icon: string;
 
   @CreateDateColumn()
   created_at: Date;

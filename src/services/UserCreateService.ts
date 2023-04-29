@@ -38,7 +38,7 @@ export class UserCreateService {
     })
 
     if (userExists) {
-      throw new Error('E-mail ja cadastrado na nossa base de dados!')
+      throw new Error('E-mail já cadastrado na nossa base de dados!')
     }
 
     const user = this.usersRepository.create({

@@ -15,8 +15,8 @@ export class UserDeleteAccountService {
   }
 
   public async execute({ user_id }: IRequest): Promise<User> {
-    const userExists = await this.usersRepository.findBy({
-      id: user_id,
+    const userExists = await this.usersRepository.findOne({
+      where: { id: user_id },
     });
 
     if (!userExists) {

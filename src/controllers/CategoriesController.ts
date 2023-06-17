@@ -5,16 +5,14 @@ import { CategoryListService } from "../services/CategoryListService";
 export class CategoriesController {
   async create(req: Request, res: Response): Promise<Response> {
     try {
-      const {
-        color,
-        name,
-      } = req.body;
+      const { color, name, icon } = req.body;
 
       const categoryService = new CategoryCreateService();
 
       const category = await categoryService.execute({
         color,
         name,
+        icon,
       });
 
       return res.status(201).json(category);
